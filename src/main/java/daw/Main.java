@@ -11,7 +11,18 @@ package daw;
 public class Main {
 
     public static void main(String[] args) {
-        SopaLetras sopa = new SopaLetras(2, 3);
+        SopaLetras sopa = new SopaLetras(10, 10);
+
+        //Método para colocar la palabra horizontalmente
+        sopa.colocarPalabraHorizontal(1, 5, "Hola");
+        //Método para colocar la palabra horizontalmente de forma inversa
+        sopa.colocarPalabraHorizontalInvertida(2, 8, "Hola");
+        //Método para colocar la palabra verticalmente
+        sopa.colocarPalabraVertical(3, 5, "Hola");
+        //Método para colocar la palabra verticalmente de forma inversa
+        sopa.colocarPalabraVerticalInvertida(7, 0, "Hola");
+
+        //Mostramos la sopa
         sopa.mostrarMatriz();
     }
 }

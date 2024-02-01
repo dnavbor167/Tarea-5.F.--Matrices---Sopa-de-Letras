@@ -85,20 +85,71 @@ public class SopaLetras {
     //indicada
     public void colocarPalabraHorizontal(
             int filaCoordenada, int columnaCoordenada, String palabra) {
-        
+
         //Convertir a char el string que le ha pasado el usuario
-        char[] palabraChar = new char[palabra.length()];
+        char[] palabraChar = palabra.toCharArray();
         //Bucle para ir recorriendo y rellenando sin que se salga
-        for (int i = (filaCoordenada - 1); i <= (filaCoordenada + 1); i++) {
-            if (!(i < 0 || i >= matrizSopa.length)) {
-                for (int j = (columnaCoordenada - 1); j <= (columnaCoordenada + 1); j++) {
-                    if (!(j < 0 || j >= matrizSopa[i].length)) {
-                        if (palabra.length() <= columnaCoordenada){
-                            
-                        }
-                    }
-                }
+        for (int i = 0; i < palabraChar.length; i++) {
+            try {
+                this.matrizSopa[filaCoordenada][columnaCoordenada++] = palabraChar[i];
+            } catch (ArrayIndexOutOfBoundsException s) {
+                System.out.println("Fuera del rango");
             }
+
+        }
+    }
+
+    //Método que recibe una coordenada de la matriz y un String con la palabra 
+    //y pone la palabra horizontalmente, de forma invertida, en la matriz a 
+    //partir de la coordenada indicada, si se puede.
+    public void colocarPalabraHorizontalInvertida(
+            int filaCoordenada, int columnaCoordenada, String palabra) {
+        //Convertir a char el string que le ha pasado el usuario
+        char[] palabraChar = palabra.toCharArray();
+        //Bucle para ir recorriendo y rellenando sin que se salga
+        for (int i = 0; i < palabraChar.length; i++) {
+            try {
+                this.matrizSopa[filaCoordenada][columnaCoordenada--] = palabraChar[i];
+            } catch (ArrayIndexOutOfBoundsException s) {
+                System.out.println("Fuera del rango");
+            }
+
+        }
+    }
+    
+    //Método que recibe una coordenada de la matriz y un String con la 
+    //palabra y pone la palabra verticalmente en la matriz a partir de la 
+    //coordenada indicada, si se puede.
+    public void colocarPalabraVertical(
+            int filaCoordenada, int columnaCoordenada, String palabra) {
+        //Convertir a char el string que le ha pasado el usuario
+        char[] palabraChar = palabra.toCharArray();
+        //Bucle para ir recorriendo y rellenando sin que se salga
+        for (int i = 0; i < palabraChar.length; i++) {
+            try {
+                this.matrizSopa[filaCoordenada++][columnaCoordenada] = palabraChar[i];
+            } catch (ArrayIndexOutOfBoundsException s) {
+                System.out.println("Fuera del rango");
+            }
+
+        }
+    }
+    
+    //Método que recibe una coordenada de la matriz y un String con la 
+    //palabra y pone la palabra verticalmente, de forma invertida, en 
+    //la matriz a partir de la coordenada indicada, si se puede.
+    public void colocarPalabraVerticalInvertida(
+            int filaCoordenada, int columnaCoordenada, String palabra) {
+        //Convertir a char el string que le ha pasado el usuario
+        char[] palabraChar = palabra.toCharArray();
+        //Bucle para ir recorriendo y rellenando sin que se salga
+        for (int i = 0; i < palabraChar.length; i++) {
+            try {
+                this.matrizSopa[filaCoordenada--][columnaCoordenada] = palabraChar[i];
+            } catch (ArrayIndexOutOfBoundsException s) {
+                System.out.println("Fuera del rango");
+            }
+
         }
     }
 }
