@@ -88,14 +88,12 @@ public class SopaLetras {
 
         //Convertir a char el string que le ha pasado el usuario
         char[] palabraChar = palabra.toCharArray();
-        //Bucle para ir recorriendo y rellenando sin que se salga
-        for (int i = 0; i < palabraChar.length; i++) {
-            try {
+        //para controlar que quepa la palabra
+        if (columnaCoordenada + palabraChar.length < this.matrizSopa[filaCoordenada][columnaCoordenada]) {
+            //Bucle para ir recorriendo y rellenando sin que se salga
+            for (int i = 0; i < palabraChar.length; i++) {
                 this.matrizSopa[filaCoordenada][columnaCoordenada++] = palabraChar[i];
-            } catch (ArrayIndexOutOfBoundsException s) {
-                System.out.println("Fuera del rango");
             }
-
         }
     }
 
@@ -106,17 +104,15 @@ public class SopaLetras {
             int filaCoordenada, int columnaCoordenada, String palabra) {
         //Convertir a char el string que le ha pasado el usuario
         char[] palabraChar = palabra.toCharArray();
-        //Bucle para ir recorriendo y rellenando sin que se salga
-        for (int i = 0; i < palabraChar.length; i++) {
-            try {
+        if (columnaCoordenada - palabraChar.length > 0) {
+            //Bucle para ir recorriendo y rellenando sin que se salga
+            for (int i = 0; i < palabraChar.length; i++) {
                 this.matrizSopa[filaCoordenada][columnaCoordenada--] = palabraChar[i];
-            } catch (ArrayIndexOutOfBoundsException s) {
-                System.out.println("Fuera del rango");
             }
-
         }
+
     }
-    
+
     //Método que recibe una coordenada de la matriz y un String con la 
     //palabra y pone la palabra verticalmente en la matriz a partir de la 
     //coordenada indicada, si se puede.
@@ -134,7 +130,7 @@ public class SopaLetras {
 
         }
     }
-    
+
     //Método que recibe una coordenada de la matriz y un String con la 
     //palabra y pone la palabra verticalmente, de forma invertida, en 
     //la matriz a partir de la coordenada indicada, si se puede.
